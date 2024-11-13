@@ -80,7 +80,7 @@ class TitleWithSlugInput
                 ) {
                     $slugAutoUpdateDisabled = $get($fieldSlug . '_slug_auto_update_disabled');
 
-                    if ($context === 'edit' && filled($record)) {
+                    if (/*$context === 'edit' &&*/ filled($record)) {
                         $slugAutoUpdateDisabled = true;
                     }
 
