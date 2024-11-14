@@ -80,8 +80,8 @@ class TitleWithSlugInput
                 ) {
                     $slugAutoUpdateDisabled = $get($fieldSlug . '_slug_auto_update_disabled');
 
-                    if (/*$context === 'edit' &&*/ filled($record)) {
-                        $slugAutoUpdateDisabled = true;
+                    if ($context === 'edit' && filled($record)) {
+                        //$slugAutoUpdateDisabled = true;
                     }
 
                     if (! $slugAutoUpdateDisabled && filled($state)) {
@@ -159,7 +159,9 @@ class TitleWithSlugInput
 
                     $set($fieldSlug, self::slugify($slugSlugifier, $text));
 
-                    $set($fieldSlug . '_slug_auto_update_disabled', true);
+                    if ($get($fieldSlug) !== self::slugify($slugSlugifier, $get($fieldTitle))) {
+                        $set($fieldSlug . '_slug_auto_update_disabled', true);
+                    }
 
                     if ($slugAfterStateUpdated) {
                         $component->evaluate($slugAfterStateUpdated);
