@@ -14,6 +14,7 @@
     $placeholder = $getPlaceholder();
     $readOnly = $getReadOnly();
     $recordUrl = $getRecordUrl();
+    $required = $getRequired();
     $slugInputUrlVisitLinkVisible = $getSlugInputUrlVisitLinkVisible();
     $slugLabelPostfix = $getSlugLabelPostfix();
     $state = $getState();
@@ -33,7 +34,7 @@
         :helper-text="$helperText"
         :hint="$hint"
         :hint-icon="$hintIcon"
-        :required="$equired"
+        :required="$required"
         :state-path="$statePath"
         class="-mt-3 filament-seo-slug-input-wrapper"
     >
@@ -190,7 +191,7 @@
                                 {!! $autocomplete ? "autocomplete=\"{$autocomplete}\"" : null !!}
                                 id="{{ $id }}"
                                 {!! $placeholder ? "placeholder=\"{$placeholder}\"" : null !!}
-                                {!! $equired ? 'required' : null !!}
+                                {!! $required ? 'required' : null !!}
                                 {{ $extraInputAttributeBag->class([
                                     'fi-input block w-full border-none bg-transparent py-1.5 text-base text-gray-950 outline-none transition duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500 disabled:[-webkit-text-fill-color:theme(colors.gray.500)] disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.400)] dark:text-white dark:placeholder:text-gray-500 dark:disabled:text-gray-400 dark:disabled:[-webkit-text-fill-color:theme(colors.gray.400)] dark:disabled:placeholder:[-webkit-text-fill-color:theme(colors.gray.500)] sm:text-xs sm:leading-6 ps-3 pe-3',
                                     'border-danger-600 ring-danger-600' => $errors->has($statePath)])
