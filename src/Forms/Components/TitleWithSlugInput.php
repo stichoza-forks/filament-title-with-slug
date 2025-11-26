@@ -153,7 +153,7 @@ class TitleWithSlugInput
                     $fieldSlug,
                     $slugAfterStateUpdated,
                 ) {
-                    $text = trim($state) === ''
+                    $text = trim($state ?? '') === ''
                         ? $get($fieldTitle)
                         : $get($fieldSlug);
 
